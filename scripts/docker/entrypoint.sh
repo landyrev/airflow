@@ -22,7 +22,9 @@ set -e
 
 echo Starting Apache Airflow with command:
 echo airflow $@
+airflow $@
 
 if [ -n "$SINGLE_NODE" ]; then
     echo airflow scheduler
+    airflow scheduler
 fi
