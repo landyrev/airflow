@@ -24,7 +24,7 @@ ARG APT_DEPS="libsasl2-dev freetds-bin build-essential default-libmysqlclient-de
 
 ENV PATH="$HOME/.npm-packages/bin:$PATH"
 
-RUN set -euxo pipefail \
+RUN set -eux pipefail \
     && apt update \
     && if [ -n "${APT_DEPS}" ]; then apt install -y $APT_DEPS; fi \
     && curl -sL https://deb.nodesource.com/setup_10.x | bash - \
@@ -40,7 +40,7 @@ RUN npm install \
     && npm run prod
 
 WORKDIR /opt/airflow
-RUN set -euxo pipefail \
+RUN set -eux pipefail \
     && apt update \
     && if [ -n "${BUILD_DEPS}" ]; then apt install -y $BUILD_DEPS; fi \
     && if [ -n "${PYTHON_DEPS}" ]; then pip install --no-cache-dir ${PYTHON_DEPS}; fi \
