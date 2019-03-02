@@ -18,7 +18,7 @@ FROM python:3.6-slim
 
 ENV AIRFLOW_HOME=/usr/local/airflow
 ARG AIRFLOW_DEPS="all"
-ARG PYTHON_DEPS=""
+ARG PYTHON_DEPS="virtualenv"
 ARG BUILD_DEPS="freetds-dev libkrb5-dev libssl-dev libffi-dev libpq-dev git"
 ARG APT_DEPS="libsasl2-dev freetds-bin build-essential default-libmysqlclient-dev apt-utils curl rsync netcat locales"
 
