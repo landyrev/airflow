@@ -225,14 +225,14 @@ class PythonVirtualenvOperator(PythonOperator):
                  python_version=None, use_dill=False,
                  system_site_packages=True,
                  op_args=None, op_kwargs=None, string_args=None,
-                 templates_dict=None, templates_exts=None, *args, **kwargs):
+                 templates_dict=None, templates_exts=None, provide_context=False, *args, **kwargs):
         super(PythonVirtualenvOperator, self).__init__(
             python_callable=python_callable,
             op_args=op_args,
             op_kwargs=op_kwargs,
             templates_dict=templates_dict,
             templates_exts=templates_exts,
-            provide_context=False,
+            provide_context=provide_context,
             *args,
             **kwargs)
         self.requirements = requirements or []
